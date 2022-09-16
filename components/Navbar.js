@@ -29,15 +29,16 @@ export const Navbar = () => {
   };
 
   useEffect(() => {
-    const showButton1 = () => {
-        // if (window.innerWidth <= 960) {
-        //   setButton1(false);
-        // } else {
-        //   setButton1(true);
-        // }
-      };
+    // const showButton1 = () => {
+      //   makes button dissapear when width is less than 960
+      //   if (window.innerWidth <= 960) {
+      //     setButton1(false);
+      //   } else {
+      //     setButton1(true);
+      //   }
+      // };
 
-      window.addEventListener("resize", showButton1);
+      // window.addEventListener("resize", showButton1);
   }, []);
   
   
@@ -60,8 +61,8 @@ export const Navbar = () => {
     <div className={`${styles.navbar_c}`}>
       <nav className={`${styles.navbar_s}`}>
         
-        <Link href="/" onClick={closeMobileMenu1}>
-          <div className={`${styles.navbar_s_logo}`}>
+        <Link href="/" >
+          <div className={`${styles.navbar_s_logo}`} onClick={closeMobileMenu1}>
             <img src='/images/code8.png' alt="code8-logo" className={`${styles.logo_nav}`}></img>
           </div>
         </Link>
@@ -71,7 +72,7 @@ export const Navbar = () => {
         </div>
 
         {/* <div className={`${styles.menu_c}`}> */}
-          <ul className={`${styles.nav_menu} ${click1 ? styles.active:styles.empty}`}>
+          <ul className={`${styles.nav_menu} ${click1 ? styles.active: styles.hidden}`}>
             <li className={`${styles.nav_item}`}>
               <Link href="/" >
                 <div className={`${styles.nav_links}`} onClick={closeMobileMenu1}>Home</div>
@@ -84,85 +85,53 @@ export const Navbar = () => {
               </Link>
             </li>
 
-            {/* Library */}
             <li className={`${styles.nav_item}`} onClick={extendElement1}>
-              <Link
-                href="/build"
-                onClick={closeMobileMenu1}
-              >
-                <div className={`${styles.nav_links}`}>Build</div>
+              <Link href="/build">
+                <div className={`${styles.nav_links}`} onClick={closeMobileMenu1}>Build</div>
               </Link>
             </li>
+
             <li className={`${styles.nav_item}`} onClick={closeMobileMenu1}>
               <Link href="/learn">
               <div className={`${styles.nav_links}`}>Learn</div>
               </Link>
             </li>
 
-            {/* Community */}
             <li className={`${styles.nav_item}`} onClick={closeMobileMenu1}>
               <Link href="/community" >
               <div className={`${styles.nav_links}`}>Community</div>
-                {/* <i className='fas fa-caret-down' /> */}
               </Link>
-              {/* {dropdown4 && <Dropdown4 onCloseMobileMenu={closeMobileMenu4} />} */}
             </li>
-            {/* Updates */}
+            
             <li className={`${styles.nav_item}`} onClick={closeMobileMenu1}>
-            <div className={`${styles.login_sign}`}>
-          <div className="btn-mobile">
-            {button1 && (
-              <Button
-                  buttonStyle="btn--primary btn--mobile"
-                  buttonSize="btn--medium"
-                  onClick={handleClickOpen}>
-                Login
-              </Button>
-            )}
-          </div>
-          <div className="btn-mobile">
-            {button1 && (
-              <Button
-                buttonStyle="btn--primary btn--mobile"
-                buttonSize="btn--medium"
-                onClick={handleClickOpen2}
-              >
-                Sign Up
-              </Button>
-            )}
-          </div>
-        
-        </div>
+              <div className={`${styles.login_sign}`}>
+                <div className="btn-mobile">
+                  {button1 && (
+                    <Button
+                        buttonStyle="btn--primary btn--mobile"
+                        buttonSize="btn--medium"
+                        onClick={handleClickOpen}>
+                      Login
+                    </Button>
+                  )}
+                </div>
+                <div className="btn-mobile">
+                  {button1 && (
+                    <Button
+                      buttonStyle="btn--primary btn--mobile"
+                      buttonSize="btn--medium"
+                      onClick={handleClickOpen2}
+                    >
+                      Sign Up
+                    </Button>
+                  )}
+                </div>
+          
+              </div>
             </li>
 
           </ul>
-        {/* </div> */}
-        {/* <LoginButton /> */}
-        {/* <SignUpButton /> */}
-        {/* <div className={`${styles.login_sign}`}>
-          <div className="btn-mobile">
-            {button1 && (
-              <Button
-                  buttonStyle="btn--primary btn--mobile"
-                  buttonSize="btn--medium"
-                  onClick={handleClickOpen}>
-                Login
-              </Button>
-            )}
-          </div>
-          <div className="btn-mobile">
-            {button1 && (
-              <Button
-                buttonStyle="btn--primary btn--mobile"
-                buttonSize="btn--medium"
-                onClick={handleClickOpen2}
-              >
-                Sign Up
-              </Button>
-            )}
-          </div>
         
-        </div> */}
         {pop && (
           <div className={`${styles.Popup}`}>
             <div className={`${styles.popup_head}`}>
@@ -188,7 +157,7 @@ export const Navbar = () => {
       <Dialog
         open={open2}
         onClose={handleClose2}
-        fullWidth="true"
+        fullWidth={true}
         maxWidth="sm"
       >
         <DialogContent>
@@ -267,7 +236,7 @@ export const Navbar = () => {
         </DialogContent>
         <DialogActions></DialogActions>
       </Dialog>
-      <Dialog open={open} onClose={handleClose} fullWidth="true" maxWidth="sm">
+      <Dialog open={open} onClose={handleClose} fullWidth={true} maxWidth="sm">
         <DialogContent>
           <div style={{ display: "flex", justifyContent: "space-between" }}>
             <span>
